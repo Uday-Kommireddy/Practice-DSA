@@ -444,4 +444,70 @@ class Solution {
 
 
 
+234. Palindrome Linked List
+Easy
+14K
+766
+Companies
+Given the head of a singly linked list, return true if it is a 
+palindrome
+ or false otherwise.
+
+ 
+
+Example 1:
+
+
+Input: head = [1,2,2,1]
+Output: true
+Example 2:
+
+
+Input: head = [1,2]
+Output: false
+ 
+
+Constraints:
+
+The number of nodes in the list is in the range [1, 105].
+0 <= Node.val <= 9
+ 
+
+Follow up: Could you do it in O(n) time and O(1) space?
+
+
+
+
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        if(head==null || head.next == null) return true;
+        ListNode temp = head;
+        ArrayList AL = new ArrayList<>();
+        while(head!=null){
+            AL.add(head.val);
+            head = head.next;
+        }
+        boolean ans = false;
+        for(int i=0;i<(AL.size())/2;i++){
+            if(AL.get(i)==AL.get(AL.size()-i-1)) ans = true;
+            else return false;
+        }
+        return ans;
+    }
+}
+
+
+
+
 
